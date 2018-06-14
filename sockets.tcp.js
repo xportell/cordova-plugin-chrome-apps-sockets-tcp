@@ -175,13 +175,14 @@ function registerReceiveEvents() {
         }
     };
 
-    /*if (platform.id == 'android') {
+    if (platform.id == 'android') {
         win = function(result) {
-            result.data = base64ToArrayBuffer(result.data);
+            var d = result.data.substring(0, result.data.length-1);
+            result.data = base64ToArrayBuffer(d);
             exports.onReceive.fire(result);
             exec(null, null, 'ChromeSocketsTcp', 'readyToRead', [result.socketId]);
         };
-    }*/
+    }
 
     function getStandardiseErrorCode(errorCode) {
         var matchedError = Object.keys(ERROR_CODES).find(function (type) {
