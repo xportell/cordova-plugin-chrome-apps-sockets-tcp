@@ -177,7 +177,7 @@ function registerReceiveEvents() {
 
     if (platform.id == 'android') {
         win = function(result) {
-            result.data = base64ToArrayBuffer(result.data);
+            //result.data = base64ToArrayBuffer(result.data);
             exports.onReceive.fire(result);
             exec(null, null, 'ChromeSocketsTcp', 'readyToRead', [result.socketId]);
         };
